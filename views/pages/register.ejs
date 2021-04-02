@@ -1,0 +1,148 @@
+<html>
+
+<head>
+
+    <title>Rubic Race Setting</title>
+
+    <link rel="stylesheet" href="CSS/register.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <% if (settings.theme == "Light") { %>
+        <style>
+
+            :root {
+                --text-color: #000000;
+                --primecolor1-color: #ffffff;
+                --primecolor2-color: #d4d4d4;
+                --primecolor3-color: #75d2fd;
+            }
+
+            body {
+                color: var(--text-color);
+                background-color: var(--primecolor1-color);
+            }
+
+            .headlinebox, .sidebar, .formfooterbutton, .formbutton, select{
+                color: var(--text-color);
+                background-color: var(--primecolor2-color);
+            }
+
+            .content { 
+                background: linear-gradient(330deg, var(--primecolor2-color), var(--primecolor1-color), var(--primecolor1-color));
+                border-color: var(--primecolor2-color);
+            }
+
+            .optionslistbox {
+                background: linear-gradient(var(--primecolor2-color), var(--primecolor1-color));
+            }
+
+            .goback {
+                font-weight: bold;
+                color: var(--text-color);
+                background: linear-gradient(var(--primecolor1-color), var(--primecolor2-color));
+            }
+
+            .toggle {
+                background: var(--primecolor2-color);
+                border-color: var(--primecolor1-color);
+            }
+
+        </style>
+    <% } %>
+
+</head>
+
+<body  <%= settings.fontsize == 'Groß' ? 'style=font-size:22px' : settings.fontsize == 'Mittel' ? 'style=font-size:20px' : settings.fontsize == 'Klein' ? 'style=font-size:18px' : 'style=font-size:20px'%>>
+
+    <div class="header">
+
+        <div class="headlinebox roundbox">
+
+            <h1>Rubik Race - Register</h1>
+
+        </div>
+        
+    </div>
+
+    <div class="main">
+
+        <div class="content" id="content">
+
+          <form class="form" action="/register" method="POST">
+            
+            <div class="control">
+              <h1>Register</h1>
+              <% if (messages.error) { %>
+                <div style="display: flex; align-items: center"><i class="fas fa-exclamation-circle" style="margin-right: 5px; color: red;"></i><p><%= messages.error %></p></div>
+              <% } %>
+            </div>
+            <div class="control block-cube block-input">
+              <input type="text" id="name" name="name" placeholder="Username" required>
+              <div class="bg-top">
+                <div class="bg-inner"></div>
+              </div>
+              <div class="bg-right">
+                <div class="bg-inner"></div>
+              </div>
+              <div class="bg">
+                <div class="bg-inner"></div>
+              </div>
+            </div>
+
+            <div class="control block-cube block-input">
+              <input type="email" id="email" name="email" placeholder="Email" required>
+              <div class="bg-top">
+                <div class="bg-inner"></div>
+              </div>
+              <div class="bg-right">
+                <div class="bg-inner"></div>
+              </div>
+              <div class="bg">
+                <div class="bg-inner"></div>
+              </div>
+            </div>
+
+            <div class="control block-cube block-input">
+              <input type="password" id="password" name="password" placeholder="Password" required>
+              <div class="bg-top">
+                <div class="bg-inner"></div>
+              </div>
+              <div class="bg-right">
+                <div class="bg-inner"></div>
+              </div>
+              <div class="bg">
+                <div class="bg-inner"></div>
+              </div>
+            </div>
+
+            <button class="control btn block-cube block-cube-hover" type="submit">
+              <div class="bg-top">
+                <div class="bg-inner"></div>
+              </div>
+              <div class="bg-right">
+                <div class="bg-inner"></div>
+              </div>
+              <div class="bg">
+                <div class="bg-inner"></div>
+              </div>
+              <div class="text">
+                Register
+              </div>
+            </button>
+
+            <div class="link">
+              <a href="/login">or Login</a>
+            </div>
+
+          </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

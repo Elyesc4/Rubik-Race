@@ -1,0 +1,283 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css);
+body {
+  height: 100vh;
+  width: 100vw;
+  color: #ffffff;
+  background-color: #0f0f0f;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.fa-bars {
+  font-size: 1.8em;
+}
+
+.fa-chevron-down {
+  cursor: pointer;
+  z-index: 20;
+  font-size: 1.4em;
+  margin-right: 10px;
+}
+
+.fa-cog {
+  margin: 0px 10px;
+  font-size: 1.1em;
+}
+
+h1 {
+  letter-spacing: 5px;
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a:link, a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.roundbox {
+  margin: 0.8em;
+  border-radius: 20px;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 10;
+}
+
+.headlinebox {
+  height: 3.4em;
+  margin-bottom: 0;
+  background-color: #2b2b2b;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.content {
+  overflow: hidden;
+  margin: 0.8em;
+  border-radius: 20px;
+  border: 2px #2b2b2b solid;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1 {
+  font-size: 23px;
+}
+
+.form {
+  width: 400px;
+  padding: 64px 15px 24px;
+  margin: 0 auto;
+}
+
+.form .control {
+  margin: 0 0 24px;
+}
+
+.form .control input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-family: monospace, serif;
+  letter-spacing: 0.05em;
+  font-size: 16px;
+}
+
+.form .control input:hover, .form .control input:focus {
+  outline: none;
+  border: 0;
+}
+
+.form .btn {
+  width: 100%;
+  display: block;
+  padding: 14px 16px;
+  background: transparent;
+  outline: none;
+  border: 0;
+  color: #fff;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.block-cube {
+  position: relative;
+}
+
+.block-cube .bg-top {
+  position: absolute;
+  height: 10px;
+  background: #020024;
+  background: -webkit-gradient(linear, left top, right top, from(white), color-stop(27%, yellow), color-stop(57%, orange), color-stop(74%, red), color-stop(89%, blue), to(green));
+  background: linear-gradient(90deg, white 0%, yellow 27%, orange 57%, red 74%, blue 89%, green 100%);
+  bottom: 100%;
+  left: 5px;
+  right: -5px;
+  -webkit-transform: skew(-45deg, 0);
+          transform: skew(-45deg, 0);
+  margin: 0;
+}
+
+.block-cube .bg-top .bg-inner {
+  bottom: 0;
+}
+
+.block-cube .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #020024;
+  background: -webkit-gradient(linear, left top, right top, from(white), color-stop(27%, yellow), color-stop(57%, orange), color-stop(74%, red), color-stop(89%, blue), to(green));
+  background: linear-gradient(90deg, white 0%, yellow 27%, orange 57%, red 74%, blue 89%, green 100%);
+}
+
+.block-cube .bg-right {
+  position: absolute;
+  background: #020024;
+  background: green;
+  top: -5px;
+  z-index: 0;
+  bottom: 5px;
+  width: 10px;
+  left: 100%;
+  -webkit-transform: skew(0, -45deg);
+          transform: skew(0, -45deg);
+}
+
+.block-cube .bg-right .bg-inner {
+  left: 0;
+}
+
+.block-cube .bg .bg-inner {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.block-cube .bg-inner {
+  background: #0f0f0f;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+}
+
+.block-cube .text {
+  position: relative;
+  z-index: 2;
+}
+
+.block-cube.block-input input {
+  position: relative;
+  z-index: 2;
+}
+
+.block-cube.block-input input:focus ~ .bg-right .bg-inner,
+.block-cube.block-input input:focus ~ .bg-top .bg-inner,
+.block-cube.block-input input:focus ~ .bg-inner .bg-inner {
+  top: 100%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.block-cube.block-input .bg-top,
+.block-cube.block-input .bg-right,
+.block-cube.block-input .bg {
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
+}
+
+.block-cube.block-input .bg-right .bg-inner,
+.block-cube.block-input .bg-top .bg-inner {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.block-cube.block-input:focus .bg-top,
+.block-cube.block-input:focus .bg-right,
+.block-cube.block-input:focus .bg, .block-cube.block-input:hover .bg-top,
+.block-cube.block-input:hover .bg-right,
+.block-cube.block-input:hover .bg {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.block-cube.block-cube-hover:focus, .block-cube.block-cube-hover:hover {
+  color: #000000;
+}
+
+.block-cube.block-cube-hover:focus .bg .bg-inner, .block-cube.block-cube-hover:hover .bg .bg-inner {
+  top: 100%;
+}
+
+.link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 14px 16px;
+}

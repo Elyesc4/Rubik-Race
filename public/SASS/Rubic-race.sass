@@ -1,0 +1,271 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css)
+
+$primecolor1: #0f0f0f
+$primecolor2: #2b2b2b
+$primecolor3: #767676
+$textcolor: #ffffff
+$bordercolor1: #ffffff
+$bordercolor2: #2b2b2b
+
+body
+    height: 100vh 
+    width: 100vw 
+    color: #ffffff 
+    background-color: $primecolor1
+    font-family: 'Roboto', sans-serif 
+    font-size: 20px 
+    padding: 0 
+    margin: 0 
+    display: flex 
+    flex-direction: column 
+
+.fa-bars 
+    font-size: 1.8em 
+
+.fa-chevron-down
+    cursor: pointer 
+    z-index: 20 
+    font-size: 1.4em  
+    margin-right: 10px 
+
+.fa-cog
+    margin: 0px 10px 
+    font-size: 1.1em 
+
+h1 
+    letter-spacing: 5px 
+
+h2
+    margin: 0 
+
+p
+    margin: 0 
+    padding: 0 
+
+.roundbox
+    margin: 0.8em 
+    border-radius: 20px 
+
+.header
+    display: flex 
+    z-index: 10 
+
+.menubuttonbox
+    width: 3.4em 
+    margin-right: 0 
+    margin-bottom: 0 
+    background-color: #2b2b2b 
+    display: flex 
+    justify-content: center 
+    align-items: center 
+
+.menubuttonbox:hover
+    cursor: pointer 
+
+.headlinebox
+    height: 3.4em 
+    margin-bottom: 0 
+    background-color: #2b2b2b 
+    flex-grow: 1 
+    display: flex 
+    justify-content: center 
+    align-items: center 
+
+.main
+    display: flex 
+    flex-grow: 1 
+
+.sidebar
+    overflow: hidden 
+    transition: 150ms all ease-in 
+    width: 15% 
+    margin-right: 0 
+    display: flex 
+    flex-direction: column 
+    background-color: #2b2b2b 
+
+.levels
+    padding: 0.8em 0 0.8em 0.8em 
+    border-radius: 20px     
+    box-shadow: 0 10px 16px #0f0f0f
+    background: linear-gradient(#2b2b2b, $primecolor1) 
+
+.levelbox
+    margin-top: 0.4em  
+    padding-left: 1.5em  
+    display: flex
+    flex-direction: column  
+    justify-content: space-around
+    form
+        display: flex
+        flex-direction: column
+
+.level
+    background-color: transparent 
+    color: #ffffff 
+    border: none 
+    text-align: left 
+    font-size: 1.3rem 
+    padding: 5px 
+    margin: 2px 0 2px 2px 
+
+.level:hover
+    transition: 500ms box-shadow ease-in-out 
+    background: linear-gradient(90deg, $primecolor1, #2b2b2b) 
+    border-radius: 10px 0 0 10px  
+    border: 2px #ffffff solid  
+    box-shadow: -2px 2px 5px #ffffff 
+    padding-left: 10px 
+    cursor: pointer 
+    border-right: 0 
+    margin: 0 
+
+.settings
+    display: flex 
+    align-items: baseline 
+    justify-content: center
+    margin-top: auto 
+    padding: 15px 5px 
+    border-radius: 20px 
+    background: linear-gradient($primecolor1, #2b2b2b) 
+    border: none 
+    color: #fff 
+    outline: none 
+    font-size: 1em 
+
+.content
+    overflow: hidden 
+    margin: 0.8em 
+    border-radius: 20px 
+    border: 2px #2b2b2b solid 
+    flex-grow: 1 
+    display: flex 
+
+.gameend
+    position: fixed 
+
+.gameendtext
+    display: none
+    flex-direction: column
+    margin: 2% 0
+
+.gamebordbox
+    margin-right: -3.4375vw;
+    flex-grow: 1 
+    display: flex 
+    justify-content: center 
+    align-items: center 
+
+.gameinfo
+    transition: 150ms all ease-in 
+    width: 50px 
+    height: 50px 
+    overflow: hidden 
+    background-color: #2b2b2b 
+    display: flex 
+    flex-direction: column 
+    border-radius: 20px 
+    margin: 0.4em 
+
+div#infolinebox
+    height: 100% 
+    width: 100% 
+    cursor: pointer 
+
+
+h2#infoline
+    text-align: center 
+    letter-spacing: 2px 
+    margin-top: 0.16666em 
+
+.infotext
+    display: none 
+    padding: 10px 
+    p
+        text-align: center
+        margin-bottom: 0.4em
+
+.exitinfo
+    display: none 
+    justify-content: center 
+    margin-top: auto 
+
+.exitinfobox
+    border-radius: 20px 
+    padding: 0.5em 1em 0.5em 1em 
+    margin-bottom: 10px 
+    background: linear-gradient($primecolor1, #2b2b2b ) 
+
+.exitinfobox:hover
+    border: 2px #ffffff solid 
+    box-shadow: -2px 2px 5px #ffffff 
+    margin-bottom: 8px 
+
+.exitinfotext
+    cursor: pointer 
+    margin: 0 
+
+.gamebord
+    width: 800px 
+    height: 800px 
+    display: flex 
+    flex-wrap: wrap 
+
+.err
+    color: #ff0000 
+    background: linear-gradient($primecolor1, #2b2b2b ) 
+    font-weight: bold 
+    font-size: 2rem 
+    padding: 1.2rem 
+    height: min-content 
+    border-radius: 20px 
+    border: 2px #ffffff solid 
+    box-shadow: 10px 20px 20px #444444 
+    display: flex 
+    flex-direction: column 
+    justify-content: center 
+
+.box
+    height: 156px 
+    width: 156px 
+    background-color: transparent 
+    border-radius: 20px 
+    margin: 2px;
+
+.levelgoal
+    width: 300px 
+    height: 300px 
+    display: flex 
+    flex-wrap: wrap 
+
+.goalbox
+    height: 56px 
+    width: 56px 
+    background-color: #2b2b2b 
+    border-radius: 20px 
+    border: 2px #0f0f0f solid  //TODO: change this color
+
+.goalbox_dummi
+    height: 56px 
+    width: 56px 
+    background-color: #2b2b2b 
+    border-radius: 20px 
+    border: 2px #0f0f0f solid
+
+.r
+    background: linear-gradient(red, #800000) 
+
+.g
+    background: linear-gradient(green, #004000) 
+
+.b
+    background: linear-gradient(blue, #000080) 
+
+.y
+    background: linear-gradient(yellow, #808000) 
+
+.o
+    background: linear-gradient(orange, #805300) 
+
+.w
+    background: linear-gradient(#ffffff, #808080)

@@ -1,0 +1,9 @@
+{"levels":[
+    {"headline":"level 1","levelpattern":[["o", "y", "b", "g", "w"], ["r", "o", "b", "g", "w"], ["r", "y", "x", "g", "w"], ["r", "y", "b", "o", "w"], ["r", "y", "b", "g", "o"]],"levelgoal":[["y", "b", "g"], ["o", "x", "o"], ["y", "b", "g"]]},
+    {"headline":"level 2","levelpattern":[["r", "y", "b", "g", "w"], ["r", "y", "b", "g", "w"], ["o", "o", "x", "o", "o"], ["r", "y", "b", "g", "w"], ["r", "y", "b", "g", "w"]],"levelgoal":[["y", "b", "g"], ["o", "x", "o"], ["y", "b", "g"]]},
+    {"headline":"level 3","levelpattern":[["r", "y", "b", "g", "w"], ["o", "o", "b", "o", "o"], ["r", "y", "x", "g", "w"], ["r", "y", "b", "g", "w"], ["r", "y", "b", "g", "w"]],"levelgoal":[["y", "b", "g"], ["o", "x", "o"], ["y", "b", "g"]]},
+    {"headline":"level 4","levelpattern":[["r", "y", "b", "g", "w"], ["o", "o", "b", "o", "o"], ["r", "y", "x", "g", "w"], ["r", "y", "b", "g", "w"], ["r", "y", "b", "g", "w"]],"levelgoal":[["y", "b", "g"], ["o", "x", "o"], ["y", "b", "g"]]},
+    {"headline":"level 5","levelpattern":[["r", "y", "b", "g", "w"], ["o", "o", "b", "o", "o"], ["r", "y", "x", "g", "w"], ["r", "y", "b", "g", "w"], ["r", "y", "b", "g", "w"]],"levelgoal":[["y", "b", "g"], ["o", "x", "o"], ["y", "b", "g"]]},
+    {"headline":"level 6","levelpattern":[["r", "y", "b", "w", "g"], ["r", "y", "b", "w", "g"], ["o", "o", "x", "o", "o"], ["r", "y", "b", "w", "g"], ["r", "y", "b", "w", "g"]],"levelgoal":[["y", "b", "g"], ["o", "x", "o"], ["y", "b", "g"]]},
+    {"headline":"level 7","levelpattern":[["r", "y", "b", "w", "g"], ["r", "y", "b", "w", "g"], ["o", "o", "x", "o", "o"], ["r", "y", "b", "w", "g"], ["r", "y", "b", "w", "g"]],"levelgoal":[["y", "b", "g"], ["o", "x", "o"], ["y", "b", "g"]]}
+]}
