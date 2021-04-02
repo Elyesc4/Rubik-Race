@@ -1,0 +1,272 @@
+<html>
+
+<head>
+
+    <title>Rubic Race Game</title>
+
+    <link href="CSS/Rubic-race.css" rel="stylesheet"  type="text/css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <% if (settings.theme == "Light") { %>
+        <style>
+
+            :root {
+                --text-color: #000000;
+                --primecolor1-color: #ffffff;
+                --primecolor2-color: #d4d4d4;
+                --primecolor3-color: #5e5e5e;
+            }
+
+            body {
+                color: var(--text-color);
+                background-color: var(--primecolor1-color);
+            }
+
+            .headlinebox, .sidebar{
+                color: var(--text-color);
+                background-color: var(--primecolor2-color);
+            }
+
+            .menubuttonbox {
+                background-color: var(--primecolor2-color)
+            }
+
+            .levels {
+                background: linear-gradient(var(--primecolor2-color), var(--primecolor1-color))
+            }
+
+            .level {
+                color: var(--text-color);
+            }
+
+            .level:hover {
+                background: linear-gradient(9deg, var(--primecolor2-color), var(--primecolor1-color));
+                border-color: var(--primecolor3-color)
+            }
+
+            .settings {
+                color: var(--text-color);
+                background: linear-gradient(var(--primecolor1-color), var(--primecolor2-color))
+            }
+
+            .content {
+                border-color: var(--primecolor2-color);
+            }
+
+            .box {
+                border-color: var(--primecolor2-color)
+            }
+
+            .x {
+                background: transparent;
+                border: none;
+            }
+
+            .err {
+                background: linear-gradient(var(--primecolor2-color), var(--primecolor1-color));
+                border-color: var(--primecolor2-color)
+            }
+
+            .gameinfo {
+                background-color: var(--primecolor2-color)
+            }
+
+            .exitinfobox {
+                background: linear-gradient(var(--primecolor2-color), var(--primecolor1-color));
+            }
+
+            .r {
+                background: linear-gradient(red, #c50000);
+            }
+
+            .g {
+                background: linear-gradient(green, #008000);
+            }
+
+            .b {
+                background: linear-gradient(blue, #000080);
+            }
+
+            .y {
+                background: linear-gradient(yellow, #caca00);
+            }
+
+            .o {
+                background: linear-gradient(#ff8800, #e67a00);
+            }
+
+            .w {
+                background: linear-gradient(#ececec, #c0c0c0);
+            }
+
+        </style>
+    <% } %>
+
+</head>
+
+<body <%= settings.fontsize == 'Groß' ? 'style=font-size:22px' : settings.fontsize == 'Mittel' ? 'style=font-size:20px' : settings.fontsize == 'Klein' ? 'style=font-size:18px' : 'style=font-size:20px'%>>
+
+    <div class="header">
+
+        <div class="menubuttonbox roundbox" id="menubutton" data-hidden="0">
+
+            <i class="fas fa-bars"></i>
+
+        </div>
+
+        <div class="headlinebox roundbox">
+
+            <h1>Rubik Race - Demo</h1>
+
+        </div>
+        
+    </div>
+
+    <div class="main">
+        
+        <div class="sidebar roundbox" id="sidebar">
+
+            <div class="levels">
+
+                <div style="display: flex; align-items: center;">
+
+                    <i class="fas fa-chevron-down" id="levelbutton" data-hidden="0"></i>
+
+                    <h2>levels</h2>
+
+                </div>
+
+                <div class="levelbox" id="levelbox">
+
+                    <form action="">
+
+                        <% for (let i = 0; i < levelnames.length; i++) { %>
+                            <input class="level" name="<%= i %>" value="<%= levelnames[i] %>" type="submit" formaction="loadlevel/<%= i %>">
+                        <% } %>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <button class="settings" onclick="document.location='/settings'">
+
+                <i class="fas fa-cog"></i>
+                <div>
+
+                    <p>Settings</p>
+
+                </div>
+
+            </button>
+
+        </div>
+
+        <div class="content" id="content">
+
+            <div class="gameend" id="overlay">
+
+                <div class="gameendtext" id="gameendtext">
+
+                    <h2 style="font-size: 4.5em;">Level Complete</h2>
+
+                </div>
+
+            </div>
+
+            <div class="gamebordbox">
+
+                <div class="gamebord" id="gamebord">
+
+                    <% try { %>
+                        <% for (let i = 0; i < gamebord.length; i++) { %>
+                            <% for (let j = 0; j < gamebord[i].length; j++) { %>
+                                <% if (i >= 1 && i <= 3 && j >= 1 && j <= 3) { %>
+                                    <div class="box row<%= i %> column<%= j %> <%= gamebord[i][j] %>" data-box="innerbox"></div>
+                                <% } else { %>
+                                    <div class="box row<%= i %> column<%= j %> <%= gamebord[i][j] %>"></div>
+                                <% } %>
+                            <% } %>
+                        <% } %>
+                    <% } catch (e) { %>
+                        <% if (e instanceof TypeError) { %>
+                            <div>
+                                <h2>Hello <%= user == undefined ? "User" : user.name %> </h2>
+                            </div>
+                        <% } %>
+                    <% } %>
+
+                </div>
+
+            </div>
+
+            <% if (levelgoal != null) { %>
+
+                <div class="gameinfo" id="infofield">
+
+                    <div id="infolinebox">
+
+                        <h2 id="infoline">i</h2>
+
+                        <%# <i class="fas fa-info"></i> %>
+                        <%# cange to real icon %>
+                    
+                    </div>
+
+                    <div class="infotext" id="infotext">
+
+                        <p>
+                            <%= lodedlevel == null ? "" : lodedlevel%>
+                        </p>
+
+                        <div class="levelgoal"> 
+
+                            <% try { %>
+                                <% for (let i = 0; i < 5; i++) { %>
+                                    <% for (let j = 0; j < 5; j++) { %>
+                                        <% if (i >= 1 && i <= 3 && j >= 1 && j <= 3) { %>
+                                            <% let r = i - 1 %>
+                                            <% let c = j -1 %>
+                                            <div class="goalbox row<%= i %> column<%= j %> <%= levelgoal[r][c] %>"></div>
+                                        <% } else { %>
+                                            <div class="goalbox_dummi row<%= i %> column<%= j %> x"></div>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% } catch (e) { %>
+                                <% if (e instanceof TypeError) { %>
+                                    <%= e %>
+                                <% } %>
+                            <% } %>
+
+                        </div>
+
+                    </div>
+
+                    <div class="exitinfo" id="exitinfo">
+
+                        <div class="exitinfobox">
+
+                            <p class="exitinfotext">Hide Infofield</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <% } %>
+    
+        </div>
+
+    </div>
+
+    <script src="JS/function.js"></script>
+
+</body>
+
+</html>
