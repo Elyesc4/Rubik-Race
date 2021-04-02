@@ -2,6 +2,8 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
+const port = 3000
+
 const express = require('express')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
@@ -23,18 +25,18 @@ initializePassport(
 var users = []
 
 const conn = mariadb.createConnection({
-    host: 'localhost', 
+    host: process.env.DB_HOST, 
     user:'root', 
-    password: process.env.MYSQL_PASSWORD.toString(),
+    password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DB
-  });
+});
 
 
 conn.connect(err => {
 if (err) {
   console.log("not connected due to error: " + err);
 } else {
-  console.log("connected ! connection id is " + conn.threadId);
+  console.log("Database connected! connection id is " + conn.threadId);
 }
 });
 
@@ -142,19 +144,19 @@ app.get('/Rubic-race', (req, res) => {
     });
 });
 
-app.get('/Rubic-race-mobile', (req, res) => {
-
-    setRenderData();
-
-    res.render(pagesDir + 'Rubic-race-mobile', {
-        settings: settings,
-        infotext: infotext,
-        lodedlevel: lodedlevel,
-        gamebord: gamebord,
-        levelgoal: levelgoal,
-        levelnames: levelnames
-    });
-});
+// app.get('/Rubic-race-mobile', (req, res) => {
+// 
+    // setRenderData();
+// 
+    // res.render(pagesDir + 'Rubic-race-mobile', {
+        // settings: settings,
+        // infotext: infotext,
+        // lodedlevel: lodedlevel,
+        // gamebord: gamebord,
+        // levelgoal: levelgoal,
+        // levelnames: levelnames
+    // });
+// });
 
 app.get('/settings', (req, res) => {
 
@@ -214,4 +216,6 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }
 
-app.listen(3000)
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`)
+})
