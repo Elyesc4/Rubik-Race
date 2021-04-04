@@ -2,6 +2,8 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
+const port = 3000
+
 const express = require('express')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
@@ -23,18 +25,18 @@ initializePassport(
 var users = []
 
 const conn = mariadb.createConnection({
-    host: 'localhost', 
+    host: process.env.DB_HOST, 
     user:'root', 
-    password: process.env.MYSQL_PASSWORD.toString(),
+    password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DB
-  });
+});
 
 
 conn.connect(err => {
 if (err) {
   console.log("not connected due to error: " + err);
 } else {
-  console.log("connected ! connection id is " + conn.threadId);
+//   console.log("Database connected! connection id is " + conn.threadId);
 }
 });
 
@@ -74,17 +76,22 @@ const writeJSONdata = (filename, data) => {
     fs.writeFileSync(contentDir + filename, JSON.stringify(data));
 }
 
-const setRenderData = () => {
-    gamebord = undefined ? gamebord = null : gamebord = gamebord;
-    levelgoal = undefined ? levelgoal = '/// info ///' : levelgoal = levelgoal;
-
+const  setRenderData = async () => {
+    // gamebord = undefined ? gamebord = null : gamebord = gamebord;
+    // levelgoal = undefined ? levelgoal = '/// info ///' : levelgoal = levelgoal;
+// 
     levelnames = [] // reset
-    let levels = getJSONdata(contentDir, 'level.json').levels
-    for (let i = 0; i < levels.length; i++) {
-        levelnames.push(levels[i].headline)
-    }
+    // let levels = getJSONdata(contentDir, 'level.json').levels
+    // for (let i = 0; i < levels.length; i++) {
+        // levelnames.push(levels[i].headline)
+    // }
 
-    settings = getJSONdata(contentDir, 'settings.json')
+    settings = await getJSONdata(contentDir, 'settings.json')
+
+    var sql = `SELECT headline FROM levels;`
+    var data = await conn.query(sql)
+
+    console.log(data);
 }
 
 app.get('/', (req, res) => {
@@ -131,6 +138,7 @@ app.delete('/logout', (req, res) => {
 app.get('/Rubic-race', (req, res) => {
 
     setRenderData();
+    console.log(levelnames);
 
     res.render(pagesDir + 'Rubic-race', {
         user: req.user,
@@ -142,19 +150,19 @@ app.get('/Rubic-race', (req, res) => {
     });
 });
 
-app.get('/Rubic-race-mobile', (req, res) => {
-
-    setRenderData();
-
-    res.render(pagesDir + 'Rubic-race-mobile', {
-        settings: settings,
-        infotext: infotext,
-        lodedlevel: lodedlevel,
-        gamebord: gamebord,
-        levelgoal: levelgoal,
-        levelnames: levelnames
-    });
-});
+// app.get('/Rubic-race-mobile', (req, res) => {
+// 
+    // setRenderData();
+// 
+    // res.render(pagesDir + 'Rubic-race-mobile', {
+        // settings: settings,
+        // infotext: infotext,
+        // lodedlevel: lodedlevel,
+        // gamebord: gamebord,
+        // levelgoal: levelgoal,
+        // levelnames: levelnames
+    // });
+// });
 
 app.get('/settings', (req, res) => {
 
@@ -168,12 +176,17 @@ app.get('/settings', (req, res) => {
 
 app.get('/loadlevel/:levelid', (req, res) => {
     levelid = req.params.levelid
-    let data = getJSONdata(contentDir, 'level.json')
+    // let data = getJSONdata(contentDir, 'level.json')
+    var sql = `SELECT headline, levelpattern, levelgoal FROM levels;`
+    conn.query(sql, (err, result) => {
+        if (err) throw err;
+        let data = result
+        
+        gamebord = JSON.parse(data[levelid].levelpattern)
+        levelgoal = JSON.parse(data[levelid].levelgoal)
+        lodedlevel = data[levelid].headline
+    })
     
-    gamebord = data.levels[levelid].levelpattern
-    levelgoal = data.levels[levelid].levelgoal
-    levelnames = data.levels[levelid].headline
-    lodedlevel = "level " + (parseInt(levelid) + 1)
 
     res.redirect('/Rubic-race');
 });
@@ -214,4 +227,6 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }
 
-app.listen(3000)
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`)
+})
