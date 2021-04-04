@@ -156,6 +156,7 @@
             <button class="settings" onclick="document.location='/settings'">
 
                 <i class="fas fa-cog"></i>
+
                 <div>
 
                     <p>Settings</p>
@@ -195,7 +196,9 @@
                     <% } catch (e) { %>
                         <% if (e instanceof TypeError) { %>
                             <div>
+
                                 <h2>Hello <%= user == undefined ? "User" : user.name %> </h2>
+                                
                             </div>
                         <% } %>
                     <% } %>

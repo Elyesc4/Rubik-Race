@@ -1,0 +1,239 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css)
+
+$primecolor1: #0f0f0f
+$primecolor2: #2b2b2b
+$primecolor3: #767676
+$textcolor: #ffffff
+$bordercolor1: #ffffff
+$bordercolor2: #2b2b2b
+
+body 
+    height: 100vh
+    width: 100vw
+    color: $textcolor
+    background-color: $primecolor1
+    font-family: 'Roboto', sans-serif
+    font-size: 15px
+    padding: 0
+    margin: 0
+    display: flex
+    flex-direction: column
+
+
+.fa-bars 
+    font-size: 1.8em
+
+
+.fa-chevron-down 
+    cursor: pointer
+    z-index: 20
+    font-size: 1.4em 
+    margin-right: 10px
+
+
+h1 
+    letter-spacing: 2px
+
+
+h2 
+    margin: 0
+
+
+.roundbox 
+    margin: 0.8em
+    border-radius: 20px
+
+
+.header 
+    display: flex
+    z-index: 10
+
+
+.menubuttonbox 
+    width: 3.4em
+    margin-right: 0
+    margin-bottom: 0
+    background-color: $primecolor2
+    display: flex
+    justify-content: center
+    align-items: center
+
+
+.menubuttonbox:hover 
+    cursor: pointer
+
+
+.headlinebox 
+    height: 3.4em
+    margin-bottom: 0
+    background-color: $primecolor2
+    flex-grow: 1
+    display: flex
+    justify-content: center
+    align-items: center
+
+
+.main 
+    display: flex
+    flex-grow: 1
+    flex-direction: column
+
+
+.sidebar 
+    overflow: hidden
+    transition: 150ms all ease-in
+    width: auto
+    margin: 0.8em
+    display: flex
+    background-color: $primecolor2
+    flex-direction: row
+    background-color: transparent
+    justify-content: space-between
+
+
+.levels 
+    padding: 0.8em 0 0.8em 0.8em
+    border-radius: 20px
+    background: linear-gradient($primecolor2, $primecolor1)
+
+
+.levelbox 
+    margin-top: 0.4em 
+    padding-left: 1.5em 
+    display: flex 
+    flex-direction: column 
+    justify-content: space-around
+
+
+.level 
+    background-color: transparent
+    color: $textcolor
+    border: none
+    text-align: left
+    font-size: 1.3rem
+    padding: 5px
+    margin: 2px 0 2px 2px
+
+
+.level:hover 
+    transition: 100ms all ease-in
+    background: linear-gradient(90deg, $primecolor1, $primecolor2)
+    border-radius: 10px 0 0 10px 
+    border: 2px $bordercolor1 solid 
+    box-shadow: -2px 2px 5px $bordercolor1
+    padding-left: 10px
+    cursor: pointer
+    border-right: 0
+    margin: 0
+
+
+.content 
+    overflow: hidden
+    margin: 0.8em
+    border-radius: 20px
+    border: 2px #2b2b2b solid
+    flex-grow: 1
+    display: flex
+
+
+.gamebordbox 
+    flex-grow: 1
+    display: flex
+    justify-content: center
+    align-items: center
+
+
+.gameinfo 
+    transition: 150ms all ease-in
+    width: 50px
+    height: 50px
+    overflow: hidden
+    background-color: #2b2b2b
+    display: flex
+    flex-direction: column
+    border-radius: 20px
+    margin: 10px 10px 10px 0
+
+
+div#infolinebox 
+    height: 100%
+    width: 100%
+    cursor: pointer
+
+
+
+h2#infoline 
+    text-align: center
+    letter-spacing: 2px
+    margin-top: 5px
+
+
+.infotext 
+    display: none
+    padding: 10px
+
+
+.exitinfo 
+    display: none
+    justify-content: center
+    margin-top: auto
+    padding: 0.8em
+    margin: 0
+
+
+.exitinfobox 
+    border-radius: 20px
+    padding: 0.5em 1em 0.5em 1em
+    margin-bottom: 10px
+    background: linear-gradient($primecolor1, $primecolor2 )
+
+
+.exitinfobox:hover 
+    border: 2px $bordercolor1 solid
+    box-shadow: -2px 2px 5px $bordercolor1
+    margin-bottom: 8px
+
+
+.exitinfotext 
+    cursor: pointer
+    margin: 0
+
+
+.gamebord 
+    width: 320px
+    height: 320px
+    margin-bottom: 6px
+    display: flex
+    flex-wrap: wrap
+
+
+.box 
+    height: 60px
+    width: 60px
+    border-radius: 10px
+    background-color: $primecolor2
+    border: 2px $bordercolor2 solid
+
+
+.r 
+    background: linear-gradient(red, #800000)
+
+
+.g 
+    background: linear-gradient(green, #004000)
+
+
+.b 
+    background: linear-gradient(blue, #000080)
+
+
+.y 
+    background: linear-gradient(yellow, #808000)
+
+
+.o 
+    background: linear-gradient(orange, #805300)
+
+
+.w 
+    background: linear-gradient(#ffffff, #808080)
