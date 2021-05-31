@@ -194,7 +194,7 @@
                         <% } %>
                     <% } catch (e) { %>
                         <% if (e instanceof TypeError) { %>
-                            <div>
+                            <div style="width: 100%; display: flex; justify-content: center; padding-top: 20%;">
                                 <h2>Hello <%= user == undefined ? "User" : user.name %> </h2>
                             </div>
                         <% } %>
